@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>РостЗнаний - подготовка к ЕГЭ и ОГЭ</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <svg class="sprite" aria-hidden="true">
+      <symbol id="icon-book" viewBox="0 0 24 24">
+        <path d="M3.5 5.2c3.4.1 5.9 1 7.5 2.6v12.5c-1.7-1.4-4.2-2.1-7.5-2.2V5.2Z"/>
+        <path d="M20.5 5.2c-3.4.1-5.9 1-7.5 2.6v12.5c1.7-1.4 4.2-2.1 7.5-2.2V5.2Z"/>
+      </symbol>
+      <symbol id="icon-user" viewBox="0 0 24 24">
+        <circle cx="12" cy="8" r="4"/>
+        <path d="M4.5 21a7.5 7.5 0 0 1 15 0"/>
+      </symbol>
+      <symbol id="icon-flask" viewBox="0 0 24 24">
+        <path d="M10 3h4M11 3v5.8L5.4 18.4A2.4 2.4 0 0 0 7.5 22h9a2.4 2.4 0 0 0 2.1-3.6L13 8.8V3"/>
+        <path d="M7.6 17h8.8"/>
+      </symbol>
+      <symbol id="icon-star" viewBox="0 0 24 24">
+        <path d="m12 2.8 2.9 6 6.6.9-4.8 4.7 1.2 6.6-5.9-3.1L6.1 21l1.2-6.6-4.8-4.7 6.6-.9L12 2.8Z"/>
+      </symbol>
+      <symbol id="icon-pen" viewBox="0 0 24 24">
+        <path d="m4 20 4.7-1 10-10a2.5 2.5 0 0 0-3.5-3.5l-10 10L4 20Z"/>
+        <path d="m13.5 7.1 3.4 3.4"/>
+      </symbol>
+      <symbol id="icon-users" viewBox="0 0 24 24">
+        <circle cx="8.5" cy="8" r="3"/>
+        <circle cx="16.2" cy="8.8" r="2.5"/>
+        <path d="M3 20a5.5 5.5 0 0 1 11 0"/>
+        <path d="M13.5 19.7a4.7 4.7 0 0 1 7.5 0"/>
+      </symbol>
+      <symbol id="icon-code" viewBox="0 0 24 24">
+        <path d="m8.5 7-5 5 5 5M15.5 7l5 5-5 5M13 5l-2 14"/>
+      </symbol>
+      <symbol id="icon-calendar" viewBox="0 0 24 24">
+        <path d="M5 4h14a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/>
+        <path d="M8 2v4M16 2v4M3 9h18"/>
+      </symbol>
+      <symbol id="icon-doc" viewBox="0 0 24 24">
+        <path d="M7 3h7l4 4v14H7V3Z"/>
+        <path d="M14 3v5h5M9.5 12h5M9.5 16h7"/>
+      </symbol>
+      <symbol id="icon-home" viewBox="0 0 24 24">
+        <path d="M3 11.5 12 4l9 7.5"/>
+        <path d="M5.5 10.5V21h13V10.5"/>
+        <path d="M9.5 21v-6h5v6"/>
+      </symbol>
+      <symbol id="icon-search" viewBox="0 0 24 24">
+        <circle cx="10.5" cy="10.5" r="6"/>
+        <path d="m15 15 5 5M9.2 10.5h2.6M10.5 9.2v2.6"/>
+      </symbol>
+      <symbol id="icon-target" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="8"/>
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 12 20 4M17 4h3v3"/>
+      </symbol>
+      <symbol id="icon-headset" viewBox="0 0 24 24">
+        <path d="M4 13a8 8 0 0 1 16 0"/>
+        <path d="M4 13v4a2 2 0 0 0 2 2h2v-8H6a2 2 0 0 0-2 2ZM20 13v4a2 2 0 0 1-2 2h-2v-8h2a2 2 0 0 1 2 2Z"/>
+        <path d="M16 19c-.8 1.3-2 2-4 2"/>
+      </symbol>
+      <symbol id="icon-plane" viewBox="0 0 24 24">
+        <path d="M22 3 3 11l7.4 2.5L14 21l8-18Z"/>
+        <path d="M10.4 13.5 22 3"/>
+      </symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9"/>
+        <path d="m8 12 2.6 2.6L16 9.4"/>
+      </symbol>
+      <symbol id="icon-crown" viewBox="0 0 24 24">
+        <path d="m3 8 4.5 4L12 5l4.5 7L21 8l-2 11H5L3 8Z"/>
+      </symbol>
+    </svg>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#top" aria-label="РостЗнаний">
+          <span class="brand-mark"><svg><use href="#icon-book"></use></svg></span>
+          <span>
+            <strong>РостЗнаний</strong>
+            <small>Онлайн-школа</small>
+          </span>
+        </a>
+        <nav class="nav-links" aria-label="Основная навигация">
+          <a href="#about">О школе</a>
+          <a href="#courses">Курсы</a>
+          <a href="#process">Как проходит обучение</a>
+          <a href="#reviews">Отзывы</a>
+          <a href="#pricing">Тарифы</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contacts">Контакты</a>
+        </nav>
+        <a class="header-cta" href="#lead">Записаться на диагностику</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" id="about">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <h1>Подготовка к ЕГЭ и ОГЭ на высокие баллы</h1>
+            <p class="hero-subtitle">Системное обучение, опытные преподаватели и индивидуальный подход к каждому ученику</p>
+
+            <div class="hero-metrics" aria-label="Показатели школы">
+              <div class="metric">
+                <span class="metric-icon"><svg><use href="#icon-user"></use></svg></span>
+                <b>8 500+</b>
+                <small>учеников</small>
+              </div>
+              <div class="metric">
+                <span class="metric-icon"><svg><use href="#icon-flask"></use></svg></span>
+                <b>86</b>
+                <small>средний балл ЕГЭ</small>
+              </div>
+              <div class="metric">
+                <span class="metric-icon"><svg><use href="#icon-star"></use></svg></span>
+                <b>4,9/5</b>
+                <small>рейтинг школы</small>
+              </div>
+            </div>
+
+            <div class="hero-actions">
+              <a class="btn primary" href="#lead">Бесплатная диагностика</a>
+              <a class="btn secondary" href="#courses">Первый пробный урок</a>
+            </div>
+
+            <div class="messenger-row">
+              <span>Свяжитесь с нами:</span>
+              <a class="messenger whatsapp" href="#contacts" aria-label="WhatsApp"><span>W</span>WhatsApp</a>
+              <a class="messenger telegram" href="https://t.me/Tera711" target="_blank" rel="noopener" aria-label="Telegram"><svg><use href="#icon-plane"></use></svg>Telegram</a>
+            </div>
+          </div>
+
+          <div class="hero-art" aria-label="Ученица с учебниками и результаты">
+            <img src="assets/hero-student-2026.png" alt="Ученица онлайн-школы РостЗнаний">
+            <div class="exam-label">ЕГЭ 2026</div>
+            <div class="hero-card result-card">
+              <span>Средний результат выпускников</span>
+              <strong>86 <small>баллов</small></strong>
+              <svg viewBox="0 0 130 42" aria-hidden="true">
+                <polyline points="4,32 24,25 42,29 61,18 78,27 98,10 126,18"></polyline>
+              </svg>
+            </div>
+            <div class="hero-card admit-card">
+              <span>Поступают в вузы мечты</span>
+              <div class="university-logos" aria-label="МГУ, ВШЭ и МФТИ">
+                <span class="university-item">
+                  <span class="university-mark msu" aria-hidden="true">
+                    <svg viewBox="0 0 32 32">
+                      <path d="M8 25h16M10 25V14l6-7 6 7v11M13 25v-8h6v8M12 14h8M16 7v18"/>
+                    </svg>
+                  </span>
+                  <small>МГУ</small>
+                </span>
+                <span class="university-item">
+                  <span class="university-mark hse" aria-hidden="true">
+                    <svg viewBox="0 0 32 32">
+                      <path d="M8 8h16v16H8z"/>
+                      <path d="M12 13h8M12 19h8M16 10v12"/>
+                    </svg>
+                  </span>
+                  <small>ВШЭ</small>
+                </span>
+                <span class="university-item">
+                  <span class="university-mark mipt" aria-hidden="true">
+                    <svg viewBox="0 0 32 32">
+                      <circle cx="16" cy="16" r="2.5"/>
+                      <ellipse cx="16" cy="16" rx="11" ry="4.6"/>
+                      <ellipse cx="16" cy="16" rx="11" ry="4.6" transform="rotate(60 16 16)"/>
+                      <ellipse cx="16" cy="16" rx="11" ry="4.6" transform="rotate(-60 16 16)"/>
+                    </svg>
+                  </span>
+                  <small>МФТИ</small>
+                </span>
+              </div>
+            </div>
+            <div class="hero-card progress-card">
+              <svg><use href="#icon-check"></use></svg>
+              <span><strong>95% учеников</strong> улучшают свой результат на 20+ баллов</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="subjects" id="courses">
+        <div class="container section-panel">
+          <h2>Направления подготовки</h2>
+          <div class="subject-grid">
+            <article class="subject-card">
+              <span class="subject-icon">π</span>
+              <h3>Математика</h3>
+              <p>Профильный и базовый уровни</p>
+            </article>
+            <article class="subject-card">
+              <span class="subject-icon"><svg><use href="#icon-pen"></use></svg></span>
+              <h3>Русский язык</h3>
+              <p>Подготовка к ЕГЭ и ОГЭ, сочинение</p>
+            </article>
+            <article class="subject-card">
+              <span class="subject-icon letter">A</span>
+              <h3>Английский язык</h3>
+              <p>ЕГЭ, ОГЭ и школьная программа</p>
+            </article>
+            <article class="subject-card">
+              <span class="subject-icon"><svg><use href="#icon-users"></use></svg></span>
+              <h3>Обществознание</h3>
+              <p>Разбор всех тем и практика</p>
+            </article>
+            <article class="subject-card">
+              <span class="subject-icon"><svg><use href="#icon-code"></use></svg></span>
+              <h3>Информатика</h3>
+              <p>ЕГЭ, ОГЭ и олимпиадная подготовка</p>
+            </article>
+          </div>
+          <a class="inline-link" href="#lead">Смотреть все предметы <span>→</span></a>
+        </div>
+      </section>
+
+      <section class="process" id="process">
+        <div class="container">
+          <h2>Как проходит обучение</h2>
+          <div class="process-grid">
+            <article class="process-item">
+              <span><svg><use href="#icon-calendar"></use></svg></span>
+              <h3>Регулярная практика</h3>
+              <p>Решаем задания каждый урок и закрепляем навыки</p>
+            </article>
+            <article class="process-item">
+              <span><svg><use href="#icon-doc"></use></svg></span>
+              <h3>Пробники</h3>
+              <p>Проводим пробные экзамены и учим управлять временем</p>
+            </article>
+            <article class="process-item">
+              <span><svg><use href="#icon-home"></use></svg></span>
+              <h3>Домашние задания</h3>
+              <p>Индивидуальные ДЗ с проверкой и обратной связью</p>
+            </article>
+            <article class="process-item">
+              <span><svg><use href="#icon-search"></use></svg></span>
+              <h3>Разбор ошибок</h3>
+              <p>Работаем над слабыми местами и повторяем сложные темы</p>
+            </article>
+            <article class="process-item">
+              <span><svg><use href="#icon-target"></use></svg></span>
+              <h3>Личный план</h3>
+              <p>Составляем план подготовки под цели и сроки ученика</p>
+            </article>
+            <article class="process-item">
+              <span><svg><use href="#icon-headset"></use></svg></span>
+              <h3>Кураторская поддержка</h3>
+              <p>Куратор помогает мотивировать и не сбиваться с пути</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="stories" id="reviews">
+        <div class="container">
+          <h2>Истории наших учеников</h2>
+          <div class="story-grid">
+            <article class="story-card">
+              <img src="assets/avatar-alina-hq.png" alt="Алина">
+              <div>
+                <h3>Алина</h3>
+                <small>ЕГЭ по русскому языку</small>
+                <p class="score"><span>58</span><b>→</b><strong>89</strong></p>
+              </div>
+              <p>«Благодаря системной подготовке и поддержке преподавателя научилась писать сочинение и уверенно решать вторую часть. Очень довольна результатом!»</p>
+            </article>
+            <article class="story-card">
+              <img src="assets/avatar-ilya-hq.png" alt="Илья">
+              <div>
+                <h3>Илья</h3>
+                <small>ЕГЭ по математике (профиль)</small>
+                <p class="score"><span>64</span><b>→</b><strong>90</strong></p>
+              </div>
+              <p>«Раньше не верил, что смогу написать профильную математику на 90+. Индивидуальный подход и постоянная практика сделали свое дело!»</p>
+            </article>
+            <article class="story-card">
+              <img src="assets/avatar-maria-hq.png" alt="Мария">
+              <div>
+                <h3>Мария</h3>
+                <small>ЕГЭ по обществознанию</small>
+                <p class="score"><span>71</span><b>→</b><strong>94</strong></p>
+              </div>
+              <p>«Разбор сложных тем и пробники помогли понять логику экзамена. Спасибо школе за уверенность и высокий результат!»</p>
+            </article>
+            <article class="story-card">
+              <img src="assets/avatar-danil-hq.png" alt="Данил">
+              <div>
+                <h3>Данил</h3>
+                <small>ОГЭ по информатике</small>
+                <p class="score"><span>43</span><b>→</b><strong>79</strong></p>
+              </div>
+              <p>«Куратор всегда был на связи, помогал с заданиями и объяснял понятно. Сдал ОГЭ на высокий балл и поступил в профильный класс!»</p>
+            </article>
+            <article class="story-card is-hidden">
+              <img src="assets/avatar-sofia-hq.png" alt="София">
+              <div>
+                <h3>София</h3>
+                <small>ЕГЭ по английскому языку</small>
+                <p class="score"><span>66</span><b>→</b><strong>92</strong></p>
+              </div>
+              <p>«Мне помогли выстроить понятный план и перестать бояться устной части. Пробники каждую неделю быстро показали прогресс.»</p>
+            </article>
+            <article class="story-card is-hidden">
+              <img src="assets/avatar-nikita-hq.png" alt="Никита">
+              <div>
+                <h3>Никита</h3>
+                <small>ЕГЭ по физике</small>
+                <p class="score"><span>57</span><b>→</b><strong>88</strong></p>
+              </div>
+              <p>«На занятиях разобрали слабые темы и научили оформлять решения. К экзамену я уже понимал, где могу набрать максимум.»</p>
+            </article>
+          </div>
+          <button class="inline-link reviews-more" type="button">Смотреть больше отзывов <span>→</span></button>
+        </div>
+      </section>
+
+      <section class="pricing" id="pricing">
+        <div class="container">
+          <h2>Тарифы</h2>
+          <p class="pricing-note">Выберите подходящий формат</p>
+          <div class="tariff-grid">
+            <article class="tariff-card" data-plan="База">
+              <span class="tariff-icon plane"><svg><use href="#icon-plane"></use></svg></span>
+              <h3>База</h3>
+              <p class="tariff-intro">Всё необходимое для уверенной подготовки</p>
+              <p class="price">4 900 ₽ <small>/ месяц</small></p>
+              <ul>
+                <li>2 занятия в неделю в мини-группе</li>
+                <li>Домашние задания с проверкой</li>
+                <li>Доступ к материалам и записям</li>
+                <li>Пробники 1 раз в месяц</li>
+              </ul>
+              <button class="btn primary plan-button" type="button">Выбрать тариф</button>
+            </article>
+            <article class="tariff-card featured active" data-plan="Стандарт">
+              <span class="badge">Популярный выбор</span>
+              <span class="tariff-icon star"><svg><use href="#icon-star"></use></svg></span>
+              <h3>Стандарт</h3>
+              <p class="tariff-intro">Оптимальный формат для высоких результатов</p>
+              <p class="price">7 900 ₽ <small>/ месяц</small></p>
+              <ul>
+                <li>3 занятия в неделю в мини-группе</li>
+                <li>Домашние задания с проверкой</li>
+                <li>Доступ к материалам и записям</li>
+                <li>Пробники 2 раза в месяц</li>
+                <li>Разбор ошибок и консультации</li>
+              </ul>
+              <button class="btn primary plan-button" type="button">Выбрать тариф</button>
+            </article>
+            <article class="tariff-card" data-plan="Премиум">
+              <span class="tariff-icon crown"><svg><use href="#icon-crown"></use></svg></span>
+              <h3>Премиум</h3>
+              <p class="tariff-intro">Максимальная поддержка и персональный подход</p>
+              <p class="price">12 900 ₽ <small>/ месяц</small></p>
+              <ul>
+                <li>4 занятия в неделю индивидуально</li>
+                <li>Персональный план подготовки</li>
+                <li>Домашние задания с приоритетной проверкой</li>
+                <li>Пробники каждую неделю</li>
+                <li>Куратор и поддержка 24/7</li>
+              </ul>
+              <button class="btn primary plan-button" type="button">Выбрать тариф</button>
+            </article>
+          </div>
+          <p class="installment"><svg><use href="#icon-check"></use></svg> Рассрочка без переплат и оплата материнским капиталом</p>
+        </div>
+      </section>
+
+      <section class="lead" id="lead">
+        <div class="container lead-panel">
+          <h2>Оставьте заявку на бесплатную диагностику</h2>
+          <p>Определим уровень знаний, цели и составим план подготовки</p>
+          <form class="lead-form" id="diagnostic-form">
+            <label>
+              <span>Имя</span>
+              <input name="name" type="text" placeholder="Введите ваше имя">
+            </label>
+            <label>
+              <span>Телефон или Telegram</span>
+              <input name="contact" type="text" placeholder="+7 (___) ___-__-__">
+            </label>
+            <label>
+              <span>Предмет</span>
+              <select name="subject">
+                <option>Выберите предмет</option>
+                <option>Математика</option>
+                <option>Русский язык</option>
+                <option>Английский язык</option>
+                <option>Обществознание</option>
+                <option>Информатика</option>
+              </select>
+            </label>
+            <label>
+              <span>Класс</span>
+              <select name="grade">
+                <option>Выберите класс</option>
+                <option>8 класс</option>
+                <option>9 класс</option>
+                <option>10 класс</option>
+                <option>11 класс</option>
+              </select>
+            </label>
+            <label class="goal">
+              <span>Опишите вашу ситуацию / цель</span>
+              <textarea name="goal" placeholder="Например: хочу повысить балл, не хватает до проходного, нужно подготовиться с нуля..."></textarea>
+            </label>
+            <button class="btn primary form-submit" type="submit">Отправить заявку</button>
+            <small class="privacy"><svg><use href="#icon-check"></use></svg> Нажимая кнопку, вы соглашаетесь с <a href="#contacts">политикой конфиденциальности</a></small>
+          </form>
+        </div>
+      </section>
+
+      <section class="faq" id="faq">
+        <div class="container">
+          <h2>Часто задаваемые вопросы</h2>
+          <div class="faq-grid">
+            <details>
+              <summary>Как проходит обучение онлайн?</summary>
+              <p>Занятия проходят в видеоконференции, материалы и записи доступны в личном кабинете.</p>
+            </details>
+            <details>
+              <summary>Что нужно для занятий?</summary>
+              <p>Компьютер или планшет, стабильный интернет и готовность регулярно выполнять задания.</p>
+            </details>
+            <details>
+              <summary>Можно ли заниматься, если у меня слабая база?</summary>
+              <p>Да, на диагностике мы определяем пробелы и начинаем с уровня, который подходит ученику.</p>
+            </details>
+            <details>
+              <summary>Можно ли вернуть деньги, если не подойдёт?</summary>
+              <p>Да, условия возврата фиксируются перед началом обучения и зависят от выбранного формата.</p>
+            </details>
+            <details>
+              <summary>Как вы помогаете повысить результат?</summary>
+              <p>Даем персональный план, много практики, проверку домашних заданий и регулярные пробники.</p>
+            </details>
+            <details>
+              <summary>Как записаться на пробный урок?</summary>
+              <p>Оставьте заявку на странице, и менеджер предложит ближайшее удобное время.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="final-cta">
+        <div class="container cta-panel">
+          <div>
+            <h2>Готовы к высоким баллам?</h2>
+            <p>Оставьте заявку или напишите нам — мы поможем достичь вашей цели!</p>
+          </div>
+          <div class="cta-buttons">
+            <a class="messenger whatsapp big" href="#contacts"><span>W</span>WhatsApp</a>
+            <a class="messenger telegram big" href="https://t.me/Tera711" target="_blank" rel="noopener"><svg><use href="#icon-plane"></use></svg>Telegram</a>
+          </div>
+          <ul class="cta-list">
+            <li><svg><use href="#icon-check"></use></svg> Бесплатная диагностика</li>
+            <li><svg><use href="#icon-check"></use></svg> Ответим в течение 15 минут</li>
+            <li><svg><use href="#icon-check"></use></svg> Подберем лучший формат</li>
+          </ul>
+          <svg class="cta-plane"><use href="#icon-plane"></use></svg>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contacts">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="#top">
+            <span class="brand-mark"><svg><use href="#icon-book"></use></svg></span>
+            <span>
+              <strong>РостЗнаний</strong>
+              <small>Онлайн-школа</small>
+            </span>
+          </a>
+          <p>Онлайн-подготовка к ЕГЭ и ОГЭ на высокие баллы с заботой о каждом ученике.</p>
+        </div>
+        <div>
+          <h3>Навигация</h3>
+          <a href="#about">О школе</a>
+          <a href="#courses">Курсы</a>
+          <a href="#process">Как проходит обучение</a>
+          <a href="#reviews">Отзывы</a>
+        </div>
+        <div>
+          <h3>Полезное</h3>
+          <a href="#pricing">Тарифы</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contacts">Блог</a>
+          <a href="#contacts">Контакты</a>
+        </div>
+        <div>
+          <h3>Контакты</h3>
+          <p>+7 (800) 700-40-20</p>
+          <p>info@rostznaniy.ru</p>
+          <p>Пн–Вс: 9:00 – 21:00</p>
+        </div>
+        <div class="socials">
+          <h3>Мы в соцсетях</h3>
+          <span>vk</span>
+          <span>yt</span>
+          <span>ig</span>
+          <span>tg</span>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span>© 2024 РостЗнаний. Все права защищены.</span>
+        <a href="#lead">Политика конфиденциальности</a>
+        <a href="#lead">Публичная оферта</a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
