@@ -2,6 +2,7 @@ const tariffCards = document.querySelectorAll(".tariff-card");
 const planButtons = document.querySelectorAll(".plan-button");
 const diagnosticForm = document.querySelector("#diagnostic-form");
 const details = document.querySelectorAll(".faq details");
+const teacherDetails = document.querySelectorAll(".teacher-card details");
 const storyGrid = document.querySelector(".story-grid");
 const reviewsMoreButton = document.querySelector(".reviews-more");
 
@@ -25,6 +26,15 @@ details.forEach((item) => {
   item.addEventListener("toggle", () => {
     if (!item.open) return;
     details.forEach((other) => {
+      if (other !== item) other.open = false;
+    });
+  });
+});
+
+teacherDetails.forEach((item) => {
+  item.addEventListener("toggle", () => {
+    if (!item.open) return;
+    teacherDetails.forEach((other) => {
       if (other !== item) other.open = false;
     });
   });
