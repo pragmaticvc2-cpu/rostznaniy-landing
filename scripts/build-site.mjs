@@ -22,9 +22,8 @@ await cp(
 
 const serverSource = `import { readFile, stat } from "node:fs/promises";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
 
-const publicDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../public");
+const publicDir = path.resolve("dist/public");
 
 const contentTypes = {
   ".html": "text/html; charset=utf-8",
