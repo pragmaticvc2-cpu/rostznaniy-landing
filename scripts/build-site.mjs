@@ -75,7 +75,7 @@ async function resolvePublicAsset(pathname) {
   return null;
 }
 
-export default async function handler(request) {
+async function handler(request) {
   const url = new URL(request.url);
   const assetPath = await resolvePublicAsset(url.pathname);
   const filePath = assetPath || path.join(publicDir, "index.html");
@@ -93,6 +93,12 @@ export default async function handler(request) {
     return new Response("Not found", { status: 404 });
   }
 }
+
+export default {
+  fetch: handler
+};
+
+export { handler };
 `;
 
 await writeFile(path.join(dist, "server", "index.js"), serverSource);
