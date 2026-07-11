@@ -368,23 +368,6 @@ textarea {
   backdrop-filter: blur(8px);
 }
 
-.exam-label {
-  position: absolute;
-  z-index: 2;
-  left: 36.8%;
-  top: 61%;
-  padding: 0;
-  color: #fff;
-  font-size: clamp(16px, 1.15vw, 25px);
-  font-weight: 900;
-  letter-spacing: 0;
-  line-height: 1;
-  opacity: 0.96;
-  text-shadow: 0 1px 1px rgba(0, 42, 125, 0.22);
-  transform: rotate(-2.5deg) skewY(-1deg);
-  pointer-events: none;
-}
-
 .result-card {
   top: 12%;
   right: 5%;
@@ -430,7 +413,7 @@ textarea {
 }
 
 .admit-card {
-  right: 9%;
+  right: 2%;
   bottom: 25%;
   width: 30%;
   min-width: 218px;
@@ -2034,12 +2017,6 @@ button.inline-link {
   .progress-card svg {
     width: 28px;
     height: 28px;
-  }
-
-  .exam-label {
-    left: 38%;
-    top: 60%;
-    font-size: 13px;
   }
 
   .subject-grid,
