@@ -94,7 +94,7 @@
           <a href="#faq">FAQ</a>
           <a href="#contacts">Контакты</a>
         </nav>
-        <a class="header-cta" href="#lead">Записаться на диагностику</a>
+        <a class="header-cta" href="#trial-modal" data-open-trial>Оставить заявку</a>
       </div>
     </header>
 
@@ -124,8 +124,8 @@
             </div>
 
             <div class="hero-actions">
-              <a class="btn primary" href="#lead">Бесплатная диагностика</a>
-              <a class="btn secondary" href="#courses">Первый пробный урок</a>
+              <a class="btn primary" href="#trial-modal" data-open-trial>Бесплатный пробный урок</a>
+              <a class="btn secondary" href="#courses">Смотреть направления</a>
             </div>
 
             <div class="messenger-row">
@@ -252,7 +252,7 @@
         <div class="container">
           <div class="section-headline">
             <h2>Наши преподаватели</h2>
-            <p>Сильные предметники, которые ведут ученика от диагностики до спокойного экзамена.</p>
+            <p>Сильные предметники, которые ведут ученика от первого урока до спокойного экзамена.</p>
           </div>
           <div class="teacher-grid">
             <article class="teacher-card">
@@ -486,9 +486,9 @@
 
       <section class="lead" id="lead">
         <div class="container lead-panel">
-          <h2>Оставьте заявку на бесплатную диагностику</h2>
+          <h2>Оставьте бесплатную заявку на пробный урок</h2>
           <p>Определим уровень знаний, цели и составим план подготовки</p>
-          <form class="lead-form" id="diagnostic-form">
+          <form class="lead-form" id="lead-request-form">
             <label>
               <span>Имя</span>
               <input name="name" type="text" placeholder="Введите ваше имя">
@@ -498,7 +498,7 @@
               <input name="contact" type="text" placeholder="+7 (___) ___-__-__">
             </label>
             <label>
-              <span>Предмет</span>
+              <span>Желаемое направление</span>
               <select name="subject">
                 <option>Выберите предмет</option>
                 <option>Математика</option>
@@ -519,7 +519,7 @@
               </select>
             </label>
             <label class="goal">
-              <span>Опишите вашу ситуацию / цель</span>
+              <span>Пожелания к уроку</span>
               <textarea name="goal" placeholder="Например: хочу повысить балл, не хватает до проходного, нужно подготовиться с нуля..."></textarea>
             </label>
             <button class="btn primary form-submit" type="submit">Отправить заявку</button>
@@ -542,7 +542,7 @@
             </details>
             <details>
               <summary>Можно ли заниматься, если у меня слабая база?</summary>
-              <p>Да, на диагностике мы определяем пробелы и начинаем с уровня, который подходит ученику.</p>
+              <p>Да, на пробном уроке мы определяем пробелы и начинаем с уровня, который подходит ученику.</p>
             </details>
             <details>
               <summary>Можно ли вернуть деньги, если не подойдёт?</summary>
@@ -571,7 +571,7 @@
             <a class="messenger telegram big" href="https://t.me/Tera711" target="_blank" rel="noopener"><svg><use href="#icon-plane"></use></svg>Telegram</a>
           </div>
           <ul class="cta-list">
-            <li><svg><use href="#icon-check"></use></svg> Бесплатная диагностика</li>
+            <li><svg><use href="#icon-check"></use></svg> Бесплатный пробный урок</li>
             <li><svg><use href="#icon-check"></use></svg> Ответим в течение 15 минут</li>
             <li><svg><use href="#icon-check"></use></svg> Подберем лучший формат</li>
           </ul>
@@ -626,6 +626,105 @@
         <a href="#lead">Публичная оферта</a>
       </div>
     </footer>
+
+    <button class="floating-trial" type="button" data-open-trial aria-label="Оставить заявку на пробный урок">
+      <span><svg><use href="#icon-plane"></use></svg></span>
+      <b>Оставить заявку</b>
+      <small>Пробный урок бесплатно</small>
+    </button>
+
+    <div class="trial-modal" id="trial-modal" role="dialog" aria-modal="true" aria-labelledby="trial-modal-title" aria-hidden="true">
+      <button class="trial-modal__backdrop" type="button" data-close-trial aria-label="Закрыть форму"></button>
+      <div class="trial-modal__panel">
+        <button class="trial-close" type="button" data-close-trial aria-label="Закрыть">×</button>
+        <aside class="trial-modal__intro">
+          <span>Пробный урок</span>
+          <h2 id="trial-modal-title">Оставьте бесплатную заявку на пробный урок</h2>
+          <p>Определим уровень знаний, цели и составим план подготовки.</p>
+          <ul>
+            <li><svg><use href="#icon-check"></use></svg> Подберем преподавателя и формат</li>
+            <li><svg><use href="#icon-check"></use></svg> Согласуем удобное время</li>
+            <li><svg><use href="#icon-check"></use></svg> Ответим в течение 15 минут</li>
+          </ul>
+        </aside>
+        <form class="trial-modal__form" id="trial-modal-form">
+          <div class="trial-progress" aria-hidden="true">
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <div class="trial-question">
+            <div class="trial-message assistant">
+              <b>РостЗнаний</b>
+              <p>Ответьте на несколько коротких вопросов, и мы подготовим пробный урок под вашу цель.</p>
+            </div>
+
+            <section class="trial-step active" data-step="0">
+              <label>
+                <span>Как вас зовут?</span>
+                <input name="modal-name" type="text" placeholder="Введите ваше имя" required>
+              </label>
+            </section>
+
+            <section class="trial-step" data-step="1">
+              <label>
+                <span>Какое направление интересно?</span>
+                <select name="modal-subject" required>
+                  <option value="">Выберите направление</option>
+                  <option>Математика</option>
+                  <option>Русский язык</option>
+                  <option>Английский язык</option>
+                  <option>Обществознание</option>
+                  <option>Информатика</option>
+                </select>
+              </label>
+            </section>
+
+            <section class="trial-step" data-step="2">
+              <label>
+                <span>В каком классе ученик?</span>
+                <select name="modal-grade" required>
+                  <option value="">Выберите класс</option>
+                  <option>8 класс</option>
+                  <option>9 класс</option>
+                  <option>10 класс</option>
+                  <option>11 класс</option>
+                </select>
+              </label>
+            </section>
+
+            <section class="trial-step" data-step="3">
+              <label>
+                <span>Куда написать?</span>
+                <input name="modal-contact" type="text" placeholder="Телефон или @Telegram" required>
+              </label>
+            </section>
+
+            <section class="trial-step" data-step="4">
+              <label>
+                <span>Есть пожелания или цель?</span>
+                <textarea name="modal-goal" placeholder="Например: хочу сдать на 90+, подтянуть вторую часть, начать с нуля..."></textarea>
+              </label>
+            </section>
+          </div>
+
+          <div class="trial-success" aria-live="polite">
+            <span><svg><use href="#icon-check"></use></svg></span>
+            <h3>Заявка сохранена</h3>
+            <p>Это демо-форма. В рабочей версии заявка уйдет менеджеру, а пока данные никуда не отправляются.</p>
+          </div>
+
+          <div class="trial-controls">
+            <button class="trial-back" type="button" data-trial-back>Назад</button>
+            <button class="btn primary trial-next" type="button" data-trial-next>Далее</button>
+          </div>
+          <small class="privacy trial-privacy"><svg><use href="#icon-check"></use></svg> Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности</small>
+        </form>
+      </div>
+    </div>
 
     <script src="script.js"></script>
   </body>
