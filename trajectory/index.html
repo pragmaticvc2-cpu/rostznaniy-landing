@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#07152f">
+    <title>Траектория балла — РостЗнаний</title>
+    <meta name="description" content="Демонстрационная диагностика и ориентировочная траектория подготовки к ЕГЭ и ОГЭ.">
+    <link rel="icon" href="../assets/university-hse.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#trajectory-app">Перейти к траектории</a>
+    <header class="trajectory-header">
+      <a class="trajectory-brand" href="../" aria-label="РостЗнаний — на главную">
+        <span class="trajectory-brand__mark" aria-hidden="true">RZ</span>
+        <span><strong>РостЗнаний</strong><small>Траектория балла</small></span>
+      </a>
+      <div class="trajectory-header__meta">
+        <span class="demo-chip">Демонстрационный режим</span>
+        <a class="text-link" href="../">На главную</a>
+      </div>
+    </header>
+
+    <main id="trajectory-app" class="trajectory-shell">
+      <section class="app-view start-view is-active" data-view="start" aria-labelledby="start-title">
+        <div class="start-grid">
+          <div class="start-copy">
+            <p class="eyebrow">Ориентир на экзаменационный сезон <span data-exam-season></span></p>
+            <h1 id="start-title">Постройте траекторию к целевому баллу</h1>
+            <p class="start-lead">Ответьте на вопросы о цели, выполните короткий предметный блок и получите предварительную оценку, слабые темы и рекомендуемый учебный маршрут.</p>
+            <div class="start-actions">
+              <button class="primary-action" type="button" data-start>Начать · около 8 минут</button>
+              <a class="secondary-action" href="../">Вернуться на главную</a>
+            </div>
+            <p class="resume-note" data-resume-note hidden>Черновик сохранён в этом браузере. Можно продолжить с последнего шага.</p>
+          </div>
+          <aside class="start-outcomes" aria-label="Что входит в результат">
+            <div class="outcome-number"><strong>8</strong><span>вопросов в предметном блоке</span></div>
+            <ul>
+              <li><span>01</span>Предварительная оценка</li>
+              <li><span>02</span>Сильные и слабые темы</li>
+              <li><span>03</span>План подготовки</li>
+              <li><span>04</span>Преподаватель и формат</li>
+            </ul>
+            <p>Без официального прогноза и обещаний результата. Траекторию уточняет преподаватель.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="app-view flow-view" data-view="profile" aria-labelledby="profile-title">
+        <div class="flow-topline">
+          <div>
+            <p class="eyebrow">Предварительный профиль</p>
+            <h1 id="profile-title">Сначала зафиксируем старт и цель</h1>
+          </div>
+          <p class="step-count" aria-live="polite" data-profile-count></p>
+        </div>
+        <div class="progress-track" aria-label="Прогресс профиля"><span data-profile-progress></span></div>
+        <div class="flow-layout">
+          <form class="question-panel" data-profile-form novalidate>
+            <fieldset data-profile-fieldset></fieldset>
+            <p class="form-error" data-profile-error role="alert"></p>
+            <div class="flow-actions">
+              <button class="ghost-action" type="button" data-profile-back>Назад</button>
+              <button class="primary-action" type="submit" data-profile-next>Далее</button>
+            </div>
+          </form>
+          <aside class="flow-summary" aria-label="Ваши ответы" data-profile-summary></aside>
+        </div>
+      </section>
+
+      <section class="app-view flow-view" data-view="diagnostic" aria-labelledby="diagnostic-title">
+        <div class="flow-topline">
+          <div>
+            <p class="eyebrow">Демонстрационная диагностика</p>
+            <h1 id="diagnostic-title">Короткий предметный блок</h1>
+          </div>
+          <p class="step-count" aria-live="polite" data-diagnostic-count></p>
+        </div>
+        <div class="progress-track"><span data-diagnostic-progress></span></div>
+        <div class="flow-layout">
+          <form class="question-panel" data-diagnostic-form novalidate>
+            <div data-diagnostic-question></div>
+            <p class="form-error" data-diagnostic-error role="alert"></p>
+            <div class="flow-actions">
+              <button class="ghost-action" type="button" data-diagnostic-back>Назад</button>
+              <button class="primary-action" type="submit" data-diagnostic-next>Ответить</button>
+            </div>
+          </form>
+          <aside class="flow-summary diagnostic-aside">
+            <span class="aside-kicker">Как это работает</span>
+            <h2>3 базовых · 3 средних · 2 повышенных</h2>
+            <p>Задания оригинальные и демонстрационные. Они помогают увидеть структуру пробелов, но не заменяют полноценную работу с преподавателем.</p>
+            <div class="mini-stat"><strong data-answered-count>0</strong><span>ответов сохранено</span></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="app-view result-view" data-view="result" aria-labelledby="result-title">
+        <div data-result-content></div>
+      </section>
+    </main>
+
+    <footer class="trajectory-footer">
+      <span>РостЗнаний · <span data-footer-season></span></span>
+      <span>Концепт цифрового продукта для онлайн-школы подготовки к экзаменам</span>
+    </footer>
+
+    <dialog class="booking-dialog" data-booking-dialog aria-labelledby="booking-title">
+      <div class="booking-dialog__frame">
+        <header class="booking-dialog__header">
+          <div>
+            <span class="aside-kicker">Демо-заявка</span>
+            <h2 id="booking-title">Запись на пробный урок</h2>
+          </div>
+          <button class="icon-button" type="button" data-booking-close aria-label="Закрыть форму">×</button>
+        </header>
+        <div class="booking-progress" aria-label="Прогресс заявки"><span data-booking-progress></span></div>
+        <form data-booking-form novalidate>
+          <div class="booking-content" data-booking-content></div>
+          <p class="form-error" data-booking-error role="alert"></p>
+          <div class="flow-actions booking-actions" data-booking-actions>
+            <button class="ghost-action" type="button" data-booking-back>Назад</button>
+            <button class="primary-action" type="submit" data-booking-next>Далее</button>
+          </div>
+        </form>
+      </div>
+    </dialog>
+
+    <div class="live-region" aria-live="polite" aria-atomic="true" data-live-region></div>
+    <script type="module" src="trajectory.js"></script>
+  </body>
+</html>
+

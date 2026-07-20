@@ -11,7 +11,7 @@ await mkdir(path.join(dist, "server"), { recursive: true });
 await mkdir(clientDir, { recursive: true });
 await mkdir(path.join(dist, ".openai"), { recursive: true });
 
-for (const entry of ["index.html", "styles.css", "script.js", "assets"]) {
+for (const entry of ["index.html", "styles.css", "script.js", "assets", "data", "trajectory"]) {
   await cp(path.join(root, entry), path.join(clientDir, entry), { recursive: true });
 }
 
@@ -39,6 +39,12 @@ async function handler(request, env) {
   const assetResponse = await env.ASSETS.fetch(request);
   if (assetResponse.status !== 404 || hasFileExtension(url.pathname)) {
     return assetResponse;
+  }
+
+  const cleanPath = url.pathname.endsWith("/") ? url.pathname.slice(0, -1) : url.pathname;
+  const nestedIndex = await env.ASSETS.fetch(requestForPath(request, cleanPath + "/index.html"));
+  if (nestedIndex.status !== 404) {
+    return nestedIndex;
   }
 
   return env.ASSETS.fetch(requestForPath(request, "/index.html"));
