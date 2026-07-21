@@ -53,6 +53,7 @@ const enterButton = document.querySelector("[data-enter-demo]");
 const sidebar = document.querySelector("[data-sidebar]");
 const menuButton = document.querySelector("[data-menu-toggle]");
 const menuBackdrop = document.querySelector("[data-menu-close]");
+const mobileSidebarQuery = window.matchMedia("(max-width: 900px)");
 const productDialog = document.querySelector("[data-product-dialog]");
 const productDialogTitle = document.querySelector("[data-dialog-title]");
 const productDialogKicker = document.querySelector("[data-dialog-kicker]");
@@ -307,6 +308,8 @@ function showSection(sectionId, updateHash = true) {
 
 function openMenu() {
   sidebar.classList.add("is-open");
+  sidebar.inert = false;
+  sidebar.setAttribute("aria-hidden", "false");
   menuBackdrop.hidden = false;
   menuButton.setAttribute("aria-expanded", "true");
   document.body.classList.add("menu-open");
@@ -314,8 +317,10 @@ function openMenu() {
 }
 
 function closeMenu() {
-  if (!sidebar.classList.contains("is-open")) return;
   sidebar.classList.remove("is-open");
+  const isMobile = mobileSidebarQuery.matches;
+  sidebar.inert = isMobile;
+  sidebar.setAttribute("aria-hidden", String(isMobile));
   menuBackdrop.hidden = true;
   menuButton.setAttribute("aria-expanded", "false");
   document.body.classList.remove("menu-open");
@@ -610,11 +615,13 @@ document.querySelector("[data-notifications-read-all]").addEventListener("click"
 });
 
 window.addEventListener("hashchange", () => showSection(location.hash.slice(1) || "overview", false));
+mobileSidebarQuery.addEventListener("change", closeMenu);
 window.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && sidebar.classList.contains("is-open")) closeMenu();
 });
 
 renderGate();
+closeMenu();
 const session = studentProfileAdapter.session();
 if (session?.entered) {
   gate.hidden = true;

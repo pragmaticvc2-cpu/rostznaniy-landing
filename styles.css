@@ -1349,6 +1349,13 @@ button.inline-link {
   line-height: 1.15;
 }
 
+/* The fixed helper obscures course content on wide screens, where primary CTAs are already visible. */
+@media (min-width: 769px) {
+  .floating-trial {
+    display: none;
+  }
+}
+
 .trial-modal {
   position: fixed;
   inset: 0;

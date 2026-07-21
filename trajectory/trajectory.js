@@ -568,25 +568,32 @@ function renderBooking() {
   }
 }
 
-function collectBookingStep() {
-  if (bookingStep === 1) {
-    const input = bookingForm.elements.studentName;
-    if (!input.value.trim()) return "Укажите имя ученика";
-    bookingData.studentName = input.value.trim();
+function saveBookingStepValues() {
+  const fields = bookingForm.elements;
+  if (bookingStep === 1 && fields.studentName) {
+    bookingData.studentName = fields.studentName.value.trim();
   }
   if (bookingStep === 2) {
-    const fields = bookingForm.elements;
-    if (!fields.parentName.value.trim()) return "Укажите имя родителя или ученика";
-    if (!fields.phone.value.trim() && !fields.telegram.value.trim() && !fields.email.value.trim()) return "Укажите хотя бы один способ связи";
-    if (fields.email.value && !fields.email.checkValidity()) return "Проверьте формат email";
     bookingData = {
       ...bookingData,
-      parentName: fields.parentName.value.trim(),
-      phone: fields.phone.value.trim(),
-      telegram: fields.telegram.value.trim(),
-      email: fields.email.value.trim(),
-      contactMethod: fields.contactMethod.value
+      parentName: fields.parentName?.value.trim() || "",
+      phone: fields.phone?.value.trim() || "",
+      telegram: fields.telegram?.value.trim() || "",
+      email: fields.email?.value.trim() || "",
+      contactMethod: fields.contactMethod?.value || bookingData.contactMethod
     };
+  }
+}
+
+function collectBookingStep() {
+  saveBookingStepValues();
+  if (bookingStep === 1) {
+    if (!bookingData.studentName) return "Укажите имя ученика";
+  }
+  if (bookingStep === 2) {
+    if (!bookingData.parentName) return "Укажите имя родителя или ученика";
+    if (!bookingData.phone && !bookingData.telegram && !bookingData.email) return "Укажите хотя бы один способ связи";
+    if (bookingData.email && !bookingForm.elements.email.checkValidity()) return "Проверьте формат email";
   }
   if (bookingStep === 3 && !bookingForm.elements.consent.checked) return "Подтвердите согласие перед сохранением";
   return "";
@@ -640,6 +647,7 @@ bookingForm.addEventListener("submit", async (event) => {
 
 bookingBack.addEventListener("click", () => {
   if (bookingStep === 0) return;
+  saveBookingStepValues();
   bookingStep -= 1;
   renderBooking();
 });
