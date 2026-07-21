@@ -11,7 +11,7 @@ await mkdir(path.join(dist, "server"), { recursive: true });
 await mkdir(clientDir, { recursive: true });
 await mkdir(path.join(dist, ".openai"), { recursive: true });
 
-for (const entry of ["index.html", "styles.css", "script.js", "assets", "data", "trajectory"]) {
+for (const entry of ["index.html", "styles.css", "script.js", "assets", "data", "trajectory", "cabinet"]) {
   await cp(path.join(root, entry), path.join(clientDir, entry), { recursive: true });
 }
 

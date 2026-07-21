@@ -72,11 +72,78 @@ textarea {
 }
 
 .header-inner {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   min-height: 66px;
   gap: 28px;
+}
+
+.mobile-nav-toggle,
+.mobile-nav {
+  display: none;
+}
+
+.mobile-nav-toggle {
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  gap: 4px;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.mobile-nav-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--navy);
+  border-radius: 1px;
+}
+
+.mobile-nav {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 45;
+  width: min(330px, calc(100vw - 34px));
+  padding: 10px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 20px 42px rgba(12, 37, 88, 0.2);
+}
+
+.mobile-nav:not([hidden]) {
+  display: grid;
+}
+
+.mobile-nav a {
+  min-height: 44px;
+  padding: 13px 12px;
+  border-bottom: 1px solid #edf2fa;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.mobile-nav a:last-child {
+  border-bottom: 0;
+}
+
+.mobile-nav__cabinet {
+  color: var(--blue);
+}
+
+.mobile-nav__trial {
+  margin-top: 6px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 5px;
+  text-align: center;
 }
 
 .brand {
@@ -1873,10 +1940,12 @@ button.inline-link {
   }
 
   .nav-links {
-    order: 3;
-    width: 100%;
-    flex-wrap: wrap;
-    gap: 10px 18px;
+    display: none;
+  }
+
+  .mobile-nav-toggle {
+    display: grid;
+    margin-left: auto;
   }
 
   .hero-grid {
@@ -1963,6 +2032,7 @@ button.inline-link {
   }
 
   .header-cta {
+    display: none;
     flex: 1;
     min-width: 150px;
     max-width: 180px;
@@ -2075,15 +2145,21 @@ button.inline-link {
     right: 12px;
     bottom: 12px;
     min-width: 0;
-    width: calc(100% - 24px);
-    grid-template-columns: 34px 1fr;
-    padding: 10px 12px;
-    border-radius: 10px;
+    width: 54px;
+    height: 54px;
+    grid-template-columns: 1fr;
+    padding: 10px;
+    border-radius: 50%;
   }
 
   .floating-trial span {
     width: 34px;
     height: 34px;
+  }
+
+  .floating-trial b,
+  .floating-trial small {
+    display: none;
   }
 
   .trial-modal {

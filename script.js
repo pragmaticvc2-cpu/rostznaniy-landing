@@ -72,6 +72,8 @@ const trialSteps = [...document.querySelectorAll(".trial-step")];
 const trialProgress = [...document.querySelectorAll(".trial-progress span")];
 const trialBack = document.querySelector("[data-trial-back]");
 const trialNext = document.querySelector("[data-trial-next]");
+const mobileNav = document.querySelector("[data-mobile-nav]");
+const mobileNavToggle = document.querySelector("[data-mobile-nav-toggle]");
 
 let trialStepIndex = 0;
 let previousFocus = null;
@@ -118,6 +120,14 @@ function closeTrialModal() {
   previousFocus?.focus?.({ preventScroll: true });
 }
 
+function setMobileNav(open) {
+  if (!mobileNav || !mobileNavToggle) return;
+  mobileNav.hidden = !open;
+  mobileNavToggle.setAttribute("aria-expanded", String(open));
+  mobileNavToggle.setAttribute("aria-label", open ? "Закрыть меню" : "Открыть меню");
+  document.body.classList.toggle("mobile-nav-open", open);
+}
+
 function validateCurrentTrialStep() {
   const field = trialSteps[trialStepIndex]?.querySelector("input, select, textarea");
   if (!field || field.checkValidity()) return true;
@@ -147,6 +157,15 @@ closeTrialButtons.forEach((button) => button.addEventListener("click", closeTria
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && trialModal?.classList.contains("is-open")) closeTrialModal();
+  if (event.key === "Escape" && !mobileNav?.hidden) {
+    setMobileNav(false);
+    mobileNavToggle?.focus({ preventScroll: true });
+  }
+});
+
+mobileNavToggle?.addEventListener("click", () => setMobileNav(mobileNav.hidden));
+mobileNav?.addEventListener("click", (event) => {
+  if (event.target.closest("a")) setMobileNav(false);
 });
 
 trialBack?.addEventListener("click", () => {

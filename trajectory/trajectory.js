@@ -626,7 +626,7 @@ bookingForm.addEventListener("submit", async (event) => {
     const tariff = tariffById(record.tariffId);
     const slot = slotById(record.slotId);
     const formatted = slotText(slot);
-    bookingContent.innerHTML = `<div class="booking-success"><span class="success-mark">✓</span><h3>Демо-заявка сохранена</h3><p>${escapeHtml(subjectById(profile.subjectId).label)} · ${escapeHtml(teacher.name)} · ${escapeHtml(formatted.date)}, ${escapeHtml(formatted.time)} · тариф «${escapeHtml(tariff.name)}».</p><p>Краткий план: ${escapeHtml(record.trajectory.summary)}. В рабочей версии менеджер свяжется выбранным способом.</p><button class="primary-action" type="button" data-success-close>Закрыть</button></div>`;
+    bookingContent.innerHTML = `<div class="booking-success"><span class="success-mark">✓</span><h3>Демо-заявка сохранена</h3><p>${escapeHtml(subjectById(profile.subjectId).label)} · ${escapeHtml(teacher.name)} · ${escapeHtml(formatted.date)}, ${escapeHtml(formatted.time)} · тариф «${escapeHtml(tariff.name)}».</p><p>Краткий план: ${escapeHtml(record.trajectory.summary)}. В рабочей версии менеджер свяжется выбранным способом.</p><div class="card-actions"><a class="primary-action" href="../cabinet/">Открыть кабинет ученика</a><button class="ghost-action" type="button" data-success-close>Закрыть</button></div></div>`;
     bookingActions.hidden = true;
     bookingProgress.style.width = "100%";
     bookingError.textContent = "";

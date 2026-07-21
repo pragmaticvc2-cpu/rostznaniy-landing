@@ -19,6 +19,16 @@ const rotate = (items, offset) => {
 
 const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 
+function scoreUnit(value) {
+  const score = Math.abs(Math.trunc(Number(value) || 0));
+  const lastTwo = score % 100;
+  const last = score % 10;
+  if (lastTwo >= 11 && lastTwo <= 14) return "баллов";
+  if (last === 1) return "балл";
+  if (last >= 2 && last <= 4) return "балла";
+  return "баллов";
+}
+
 export function selectDiagnosticQuestions(subjectId, examTypeId) {
   const seed = stableNumber(`${subjectId}-${examTypeId}`);
   const available = diagnosticQuestions.filter(
@@ -202,7 +212,7 @@ export function calculateTrajectory(profile, answers) {
     estimatedValue,
     target: targetLabel,
     targetValue,
-    gap: profile.examTypeId === "ege" ? `${Math.round(gap)} баллов` : `${gap} ${gap === 1 ? "ступень" : "ступени"} по шкале отметок`,
+    gap: profile.examTypeId === "ege" ? `${Math.round(gap)} ${scoreUnit(gap)}` : `${gap} ${gap === 1 ? "ступень" : "ступени"} по шкале отметок`,
     gapValue: gap,
     readiness,
     strongTopics: topics.strongTopics,
@@ -230,4 +240,3 @@ export function getTariffReason(result) {
   if (tariff?.id === "standard") return "Три занятия в неделю и регулярный разбор ошибок соответствуют рекомендуемой нагрузке.";
   return "Мини-группа и базовая регулярность подходят для умеренного разрыва до цели.";
 }
-

@@ -55,6 +55,9 @@ const egeA = calculateTrajectory(egeProfile, egeAnswers);
 const egeB = calculateTrajectory(egeProfile, egeAnswers);
 ok(JSON.stringify(egeA) === JSON.stringify(egeB), "EGE engine is deterministic");
 ok(egeA.estimatedRange.includes("баллов"), "EGE result uses score scale");
+const egeLowAnswers = Object.fromEntries(egeQuestions.map((question) => [question.id, 0]));
+const egeLow = calculateTrajectory(egeProfile, egeLowAnswers);
+ok(egeLow.gap !== "31 баллов", "EGE gap uses Russian score declension");
 
 const ogeProfile = { examTypeId: "oge", classValue: "9", subjectId: "informatics", currentValue: "3", targetValue: "5", goalId: "profile-class", hours: "4", format: "group" };
 const ogeQuestions = selectDiagnosticQuestions("informatics", "oge");

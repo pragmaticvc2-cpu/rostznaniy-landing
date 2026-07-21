@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#07152f">
+    <title>Личный кабинет ученика — РостЗнаний</title>
+    <link rel="icon" href="../assets/university-hse.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#cabinet-main">Перейти к содержимому</a>
+
+    <svg class="icon-sprite" aria-hidden="true">
+      <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+      <symbol id="icon-route" viewBox="0 0 24 24"><circle cx="6" cy="18" r="2"/><circle cx="18" cy="6" r="2"/><path d="M8 18h3a3 3 0 0 0 3-3v-6a3 3 0 0 1 3-3"/></symbol>
+      <symbol id="icon-map" viewBox="0 0 24 24"><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3V6Z"/><path d="M9 3v15M15 6v15"/></symbol>
+      <symbol id="icon-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></symbol>
+      <symbol id="icon-alert" viewBox="0 0 24 24"><path d="M12 3 2.8 20h18.4L12 3Z"/><path d="M12 9v5M12 17.5v.5"/></symbol>
+      <symbol id="icon-file" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6V3Z"/><path d="M14 3v5h5M9 12h6M9 16h6"/></symbol>
+      <symbol id="icon-bell" viewBox="0 0 24 24"><path d="M6 9a6 6 0 0 1 12 0v5l2 3H4l2-3V9ZM10 20h4"/></symbol>
+      <symbol id="icon-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 21a7.5 7.5 0 0 1 15 0"/></symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+      <symbol id="icon-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+      <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14M14 7l5 5-5 5"/></symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    </svg>
+
+    <section class="demo-gate" data-demo-gate aria-labelledby="demo-gate-title">
+      <div class="demo-gate__shell">
+        <div class="demo-gate__copy">
+          <a class="gate-brand" href="../" aria-label="РостЗнаний — на главную">
+            <span>RZ</span>
+            <strong>РостЗнаний</strong>
+          </a>
+          <p class="eyebrow">Демонстрационный режим</p>
+          <h1 id="demo-gate-title">Ваш маршрут подготовки в одном кабинете</h1>
+          <p class="gate-lead">Траектория результата, карта знаний, план недели и журнал ошибок связаны с диагностикой и выбранным преподавателем.</p>
+          <div class="gate-actions">
+            <button class="button button--primary" type="button" data-enter-demo>Войти в демо-кабинет</button>
+            <a class="button button--secondary" href="../">Вернуться на главную</a>
+          </div>
+          <a class="gate-trajectory" href="../trajectory/" data-gate-trajectory>Построить траекторию балла <svg><use href="#icon-arrow"></use></svg></a>
+        </div>
+        <aside class="gate-preview" aria-label="Возможности кабинета">
+          <div class="gate-preview__metric"><span>Сейчас</span><strong data-gate-current>58 баллов</strong></div>
+          <div class="gate-preview__line" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <div class="gate-preview__metric gate-preview__metric--target"><span>Цель</span><strong data-gate-target>85 баллов</strong></div>
+          <ul>
+            <li><svg><use href="#icon-route"></use></svg><span><b>Траектория</b>Понятные контрольные точки</span></li>
+            <li><svg><use href="#icon-map"></use></svg><span><b>Карта знаний</b>Темы, которые требуют внимания</span></li>
+            <li><svg><use href="#icon-calendar"></use></svg><span><b>План недели</b>Конкретные действия без перегруза</span></li>
+            <li><svg><use href="#icon-alert"></use></svg><span><b>Журнал ошибок</b>Повторение в нужный момент</span></li>
+          </ul>
+          <p>Данные демонстрационные и хранятся только в этом браузере.</p>
+        </aside>
+      </div>
+    </section>
+
+    <div class="cabinet-app" data-cabinet-app hidden>
+      <header class="app-header">
+        <div class="app-header__inner">
+          <button class="icon-button menu-button" type="button" data-menu-toggle aria-controls="cabinet-sidebar" aria-expanded="false" aria-label="Открыть меню">
+            <svg><use href="#icon-menu"></use></svg>
+          </button>
+          <a class="app-brand" href="../" aria-label="РостЗнаний — на главную">
+            <span>RZ</span>
+            <span><strong>РостЗнаний</strong><small>Кабинет ученика</small></span>
+          </a>
+          <p class="header-context" data-header-context></p>
+          <div class="header-actions">
+            <a class="header-link" href="../trajectory/">Траектория</a>
+            <button class="icon-button notification-button" type="button" data-notifications-open aria-label="Открыть уведомления">
+              <svg><use href="#icon-bell"></use></svg><span data-notification-count>0</span>
+            </button>
+            <button class="profile-chip" type="button" data-profile-menu aria-label="Профиль ученика">
+              <span data-profile-initial>А</span><b data-profile-name>Алексей</b>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <button class="sidebar-backdrop" type="button" data-menu-close aria-label="Закрыть меню" hidden></button>
+      <div class="app-layout">
+        <aside class="sidebar" id="cabinet-sidebar" data-sidebar>
+          <nav class="sidebar-nav" aria-label="Разделы кабинета">
+            <p>Главное</p>
+            <a href="#overview" data-nav="overview" aria-current="page"><svg><use href="#icon-route"></use></svg>Обзор</a>
+            <a href="#knowledge" data-nav="knowledge"><svg><use href="#icon-map"></use></svg>Карта знаний</a>
+            <a href="#plan" data-nav="plan"><svg><use href="#icon-calendar"></use></svg>План недели</a>
+            <a href="#errors" data-nav="errors"><svg><use href="#icon-alert"></use></svg>Журнал ошибок <span data-error-count></span></a>
+            <p>Учёба</p>
+            <a href="#practice" data-nav="practice"><svg><use href="#icon-check"></use></svg>Мини-практика</a>
+            <a href="#mocks" data-nav="mocks"><svg><use href="#icon-file"></use></svg>Пробники</a>
+            <a href="#assignments" data-nav="assignments"><svg><use href="#icon-file"></use></svg>Домашние задания</a>
+            <a href="#schedule" data-nav="schedule"><svg><use href="#icon-clock"></use></svg>Расписание</a>
+            <p>Поддержка</p>
+            <a href="#teacher" data-nav="teacher"><svg><use href="#icon-user"></use></svg>Преподаватель</a>
+            <a href="#tariff" data-nav="tariff"><svg><use href="#icon-file"></use></svg>Тариф и оплаты</a>
+          </nav>
+          <div class="sidebar-help">
+            <strong>Нужна новая оценка?</strong>
+            <p>Обновите учебный маршрут через демонстрационную диагностику.</p>
+            <a href="../trajectory/">Открыть trajectory</a>
+          </div>
+        </aside>
+
+        <main class="cabinet-main" id="cabinet-main" tabindex="-1">
+          <section class="workspace-section is-active" id="overview" data-section="overview" aria-labelledby="overview-title">
+            <header class="dashboard-heading">
+              <div>
+                <p class="eyebrow" data-today-label></p>
+                <h1 id="overview-title">Добрый день, <span data-student-first-name>Алексей</span></h1>
+                <p data-overview-summary></p>
+              </div>
+              <div class="dashboard-heading__actions">
+                <span class="demo-badge">Демо-кабинет</span>
+                <a class="button button--compact" href="../trajectory/">Обновить траекторию</a>
+              </div>
+            </header>
+
+            <div class="metric-strip" data-metric-strip aria-label="Сводка подготовки"></div>
+
+            <div class="dashboard-grid">
+              <article class="panel score-panel" data-score-panel aria-labelledby="score-panel-title"></article>
+              <article class="panel next-lesson-panel" data-next-lesson aria-labelledby="next-lesson-title"></article>
+              <article class="panel week-preview" data-week-preview aria-labelledby="week-preview-title"></article>
+              <article class="panel knowledge-preview" data-knowledge-preview aria-labelledby="knowledge-preview-title"></article>
+              <article class="panel universities-panel" data-universities hidden aria-labelledby="universities-title"></article>
+            </div>
+          </section>
+
+          <section class="workspace-section" id="knowledge" data-section="knowledge" hidden aria-labelledby="knowledge-title">
+            <header class="section-heading"><div><p class="eyebrow">Текущий предмет</p><h1 id="knowledge-title">Карта знаний</h1><p>Состояние тем после диагностики и локальной практики.</p></div><button class="button button--primary button--compact" type="button" data-start-weak-practice>Потренировать слабую тему</button></header>
+            <div class="status-legend" aria-label="Статусы тем"><span class="status status--strong">Сильная</span><span class="status status--working">В работе</span><span class="status status--weak">Слабая</span><span class="status status--unchecked">Не проверена</span></div>
+            <div class="knowledge-grid" data-knowledge-grid></div>
+          </section>
+
+          <section class="workspace-section" id="plan" data-section="plan" hidden aria-labelledby="plan-title">
+            <header class="section-heading"><div><p class="eyebrow">Рабочий ритм</p><h1 id="plan-title">План на неделю</h1><p data-week-load></p></div><div class="progress-ring" data-week-progress-ring aria-label="Прогресс недели"></div></header>
+            <div class="filter-bar" role="group" aria-label="Фильтр плана"><button class="filter-button is-active" type="button" data-plan-filter="all">Все</button><button class="filter-button" type="button" data-plan-filter="active">В работе</button><button class="filter-button" type="button" data-plan-filter="done">Выполнено</button></div>
+            <div class="task-list" data-weekly-plan></div>
+          </section>
+
+          <section class="workspace-section" id="errors" data-section="errors" hidden aria-labelledby="errors-title">
+            <header class="section-heading"><div><p class="eyebrow">Центр повторения</p><h1 id="errors-title">Журнал ошибок</h1><p>Ошибки из диагностики, практики, домашних заданий и пробников.</p></div></header>
+            <div class="filter-bar filter-bar--fields">
+              <label>Тема<select data-error-topic-filter aria-label="Фильтр по теме"></select></label>
+              <label>Статус<select data-error-status-filter aria-label="Фильтр по статусу"><option value="all">Все статусы</option><option value="new">Новая</option><option value="review">Нужно повторить</option><option value="reviewed">Разобрана</option><option value="fixed">Закреплена</option></select></label>
+              <label>Сортировка<select data-error-sort aria-label="Сортировка ошибок"><option value="priority">По важности</option><option value="date">По дате</option><option value="review">По повторению</option></select></label>
+            </div>
+            <div class="error-list" data-error-journal></div>
+          </section>
+
+          <section class="workspace-section" id="practice" data-section="practice" hidden aria-labelledby="practice-title">
+            <header class="section-heading"><div><p class="eyebrow">5 демонстрационных заданий</p><h1 id="practice-title">Мини-практика</h1><p>Короткий блок по слабой теме с обновлением карты знаний и журнала.</p></div></header>
+            <div class="practice-launch" data-practice-launch></div>
+            <div class="panel recent-practice"><div class="panel-heading"><div><p class="eyebrow">История</p><h2>Последние сессии</h2></div></div><div data-practice-history></div></div>
+          </section>
+
+          <section class="workspace-section" id="mocks" data-section="mocks" hidden aria-labelledby="mocks-title">
+            <header class="section-heading"><div><p class="eyebrow">Контрольные точки</p><h1 id="mocks-title">Пробники</h1><p>Стабильная демонстрационная история без официального прогноза.</p></div><button class="button button--compact" type="button" data-plan-next-mock>Запланировать пробник</button></header>
+            <div class="data-list" data-mock-list></div>
+          </section>
+
+          <section class="workspace-section" id="assignments" data-section="assignments" hidden aria-labelledby="assignments-title">
+            <header class="section-heading"><div><p class="eyebrow">Домашняя работа</p><h1 id="assignments-title">Домашние задания</h1><p>Материалы, сроки и локальная демонстрация сдачи.</p></div></header>
+            <div class="assignment-grid" data-assignment-list></div>
+          </section>
+
+          <section class="workspace-section" id="schedule" data-section="schedule" hidden aria-labelledby="schedule-title">
+            <header class="section-heading"><div><p class="eyebrow">Ближайшие занятия</p><h1 id="schedule-title">Расписание</h1><p>Перенос и отмена работают только как локальная демонстрация.</p></div></header>
+            <div class="schedule-list" data-schedule-list></div>
+          </section>
+
+          <section class="workspace-section" id="teacher" data-section="teacher" hidden aria-labelledby="teacher-title">
+            <header class="section-heading"><div><p class="eyebrow">Поддержка маршрута</p><h1 id="teacher-title">Преподаватель</h1><p>Связь текущей цели, слабых тем и ближайшего урока.</p></div></header>
+            <div class="teacher-workspace" data-teacher-workspace></div>
+          </section>
+
+          <section class="workspace-section" id="tariff" data-section="tariff" hidden aria-labelledby="tariff-title">
+            <header class="section-heading"><div><p class="eyebrow">Учебный формат</p><h1 id="tariff-title">Тариф и оплаты</h1><p>Платежи и изменение тарифа представлены только в демо-режиме.</p></div><button class="button button--compact" type="button" data-change-tariff>Сравнить тарифы</button></header>
+            <div class="tariff-workspace" data-tariff-workspace></div>
+          </section>
+        </main>
+      </div>
+
+      <footer class="app-footer"><span>РостЗнаний · кабинет ученика</span><span>Концепт цифрового продукта для онлайн-школы подготовки к экзаменам</span><a href="../">На главную</a></footer>
+    </div>
+
+    <dialog class="product-dialog" data-product-dialog aria-labelledby="product-dialog-title">
+      <div class="dialog-frame">
+        <header><div><p class="eyebrow" data-dialog-kicker>Демо-режим</p><h2 id="product-dialog-title" data-dialog-title>Подробности</h2></div><button class="icon-button" type="button" data-dialog-close aria-label="Закрыть окно"><svg><use href="#icon-close"></use></svg></button></header>
+        <div class="dialog-content" data-dialog-content></div>
+      </div>
+    </dialog>
+
+    <dialog class="product-dialog practice-dialog" data-practice-dialog aria-labelledby="practice-dialog-title">
+      <div class="dialog-frame">
+        <header><div><p class="eyebrow">Демонстрационные задания</p><h2 id="practice-dialog-title" data-practice-dialog-title>Мини-практика</h2></div><button class="icon-button" type="button" data-practice-close aria-label="Закрыть практику"><svg><use href="#icon-close"></use></svg></button></header>
+        <div class="practice-progress" aria-label="Прогресс практики"><span data-practice-progress></span></div>
+        <form class="dialog-content practice-content" data-practice-form></form>
+      </div>
+    </dialog>
+
+    <dialog class="notification-dialog" data-notification-dialog aria-labelledby="notification-title">
+      <div class="notification-frame">
+        <header><div><p class="eyebrow">Центр событий</p><h2 id="notification-title">Уведомления</h2></div><button class="icon-button" type="button" data-notifications-close aria-label="Закрыть уведомления"><svg><use href="#icon-close"></use></svg></button></header>
+        <button class="text-button" type="button" data-notifications-read-all>Отметить все прочитанными</button>
+        <div class="notification-list" data-notification-list></div>
+      </div>
+    </dialog>
+
+    <p class="live-region" data-live-region aria-live="polite"></p>
+    <script type="module" src="cabinet.js"></script>
+  </body>
+</html>
